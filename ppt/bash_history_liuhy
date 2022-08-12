@@ -1,0 +1,117 @@
+ls
+cd playground/
+s
+ls
+cd exm
+ls
+cd hello
+ls
+vim hello.c 
+gcc hello.c 
+ls
+./a.out 
+man gcc
+ls
+cpp -o hello.i hello.c 
+vim hello.i
+gcc -S -o hello.s hello.i
+vim hello.s 
+gcc -c -o hello.o hello.s
+vim hello.o
+ld hello.o 
+ld hello.o -lc
+ls
+./a.out 
+gcc -v hello.o
+./a.out 
+cd ../
+ls
+cd hello-rev/
+ls
+cd src/
+ls
+vim main.c 
+gcc main.c 
+gcc main.c -I../include 
+gcc main.c hello.c -I../include 
+./a.out 
+ls
+vim Makefile 
+ls
+gcc -c -o hello.c -fPIC
+gcc -c -o hello.o -fPIC hello.c 
+gcc -shared -o ../lib/libhello.so hello.o -fPIC
+ls ../lib/
+ls
+gcc -I../include main.c -L../lib -lhello 
+ls
+./a.out 
+ls
+readelf -d a.out 
+./a.out 
+gcc -I../include main.c -L../lib -lhello -Wl,-rpath=\$ORIGIN/../lib 
+./a.out 
+ldd a.out 
+gcc -I../include main.c -L../lib -lhello 
+ls
+echo $LD_LIBRARY_PATH 
+export LD_LIBRARY_PATH=$(pwd)/../lib:$LD_LIBRARY_PATH
+echo $LD_LIBRARY_PATH 
+./a.out 
+ldd a.out 
+module avail
+module add mpich
+mpicc -show
+write fpdc2019_1901210085
+mesg n
+ls
+cd ../
+lks
+ls
+cd ../
+ls
+cd hybrid/
+ls
+vim hybrid.c 
+mpicc -o hybrid hybrid.c -fopenmp
+ls
+vim run.slurm 
+sbatch run.slurm 
+ls
+cat hybrid
+cat hybrid.log 
+cd ../
+ls
+cd mpi/
+ls
+vim send.c 
+mpicc -o send send.c
+vim run.slurm 
+sbatch run.slurm 
+ll
+cat send.out 
+cd ../
+ls
+cd hybrid/
+ls
+salloc -N 2 --ntasks-per-node=2 -c 2 mpiexec ./hybrid 
+salloc -N 2 --ntasks-per-node=2 -c 2 
+ssh cu01
+ls
+sacctmgr show qos
+sacctmgr show ass
+scontrol show config
+ls
+scontrol show nodes
+cd ../
+ls
+cd signal/
+ls
+gcc cant_kill_me.c 
+ls
+vim cant_kill_me.c 
+tmux
+exit
+sinfo
+exit
+sinfo
